@@ -22,5 +22,10 @@
   "dependencies": {
     "oghliner": "^1.0.1",
     "through2": "^2.0.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ]
 }
