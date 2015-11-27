@@ -7,6 +7,7 @@ var through2 = require('through2');
 
 var serviceWorker = require('../index.js');
 
+// Needed to make the stream emit the 'finish' event.
 function sink() {
   return through2.obj(function(file, enc, callback) {
     callback();
