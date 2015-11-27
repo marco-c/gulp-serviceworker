@@ -1,0 +1,22 @@
+{
+  "name": "gulp-serviceworker",
+  "version": "0.0.1",
+  "description": "Generate a Service Worker for offlining your app",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-c/gulp-serviceworker.git"
+  },
+  "keywords": [
+    "offline",
+    "webapp",
+    "gulpplugin",
+    "service workers"
+  ],
+  "author": "Marco Castelluccio",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/marco-c/gulp-serviceworker/issues"
+  },
+  "homepage": "https://github.com/marco-c/gulp-serviceworker#readme"
+}
