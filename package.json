@@ -4,7 +4,7 @@
   "description": "Generate a Service Worker for offlining your app",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
   ],
   "devDependencies": {
     "gulp": "^3.9.0",
+    "istanbul": "^0.4.1",
     "temp": "^0.8.3"
   }
 }
