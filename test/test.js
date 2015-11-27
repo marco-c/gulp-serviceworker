@@ -30,12 +30,29 @@ describe('gulp-serviceworker', function() {
 
     var stream = gulp.src(['prova.js'])
     .pipe(serviceWorker({
-      rootDir: '.'
+      rootDir: '.',
     }))
     .pipe(sink())
     .on('finish', function() {
       assert.doesNotThrow(fs.accessSync.bind(fs, 'offline-worker.js'));
       done();
+    });
+  });
+
+  it('should emit an error if rootDir isn\'t a directory', function(done) {
+    fs.writeFileSync(path.join('prova.js'), 'something');
+
+    var stream = gulp.src(['prova.js'])
+    .pipe(serviceWorker({
+      rootDir: 'prova.js',
+    }))
+    .on('error', function(err) {
+      assert(err);
+      done();
+    })
+    .pipe(sink())
+    .on('finish', function() {
+      assert(false);
     });
   });
 });
