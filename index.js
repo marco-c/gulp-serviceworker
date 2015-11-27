@@ -2,9 +2,9 @@ var path = require('path');
 var oghliner = require('oghliner');
 var through2 = require('through2');
 
-function gulpServiceWorker(rootDir) {
+function gulpServiceWorker(options) {
   var toOffline = [];
-  var rootDir;
+  var rootDir = options.rootDir || '.';
 
   return through2.obj(
     function(file, enc, cb) {
