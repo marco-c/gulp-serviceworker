@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Generate a Service Worker for offlining your app",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marco-c/gulp-serviceworker.git"
