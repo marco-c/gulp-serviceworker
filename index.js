@@ -4,7 +4,7 @@ var through2 = require('through2');
 
 function gulpServiceWorker(options) {
   var toOffline = [];
-  var rootDir = options.rootDir || '.';
+  var rootDir = options && options.rootDir || '.';
 
   return through2.obj(
     function(file, enc, cb) {

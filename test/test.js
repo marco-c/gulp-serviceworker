@@ -39,6 +39,47 @@ describe('gulp-serviceworker', function() {
     });
   });
 
+  it('should generate a service worker script if the rootDir option isn\'t specified', function(done) {
+    fs.writeFileSync(path.join('prova.js'), 'something');
+
+    var stream = gulp.src(['prova.js'])
+    .pipe(serviceWorker())
+    .pipe(sink())
+    .on('finish', function() {
+      assert.doesNotThrow(fs.accessSync.bind(fs, 'offline-worker.js'));
+      done();
+    });
+  });
+
+  it('should generate a service worker script if the rootDir option isn\'t the default and doesn\'t exist', function(done) {
+    fs.writeFileSync(path.join('prova.js'), 'something');
+
+    var stream = gulp.src(['prova.js'])
+    .pipe(serviceWorker({
+      rootDir: 'dist/',
+    }))
+    .pipe(sink())
+    .on('finish', function() {
+      assert.doesNotThrow(fs.accessSync.bind(fs, 'dist/offline-worker.js'));
+      done();
+    });
+  });
+
+  it('should generate a service worker script if the rootDir option isn\'t the default and already exists', function(done) {
+    fs.writeFileSync(path.join('prova.js'), 'something');
+    fs.mkdirSync('dist');
+
+    var stream = gulp.src(['prova.js'])
+    .pipe(serviceWorker({
+      rootDir: 'dist/',
+    }))
+    .pipe(sink())
+    .on('finish', function() {
+      assert.doesNotThrow(fs.accessSync.bind(fs, 'dist/offline-worker.js'));
+      done();
+    });
+  });
+
   it('should emit an error if rootDir isn\'t a directory', function(done) {
     fs.writeFileSync(path.join('prova.js'), 'something');
 
