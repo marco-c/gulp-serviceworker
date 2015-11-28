@@ -1,6 +1,5 @@
 var assert = require('assert');
 var fs = require('fs');
-var path = require('path');
 var gulp = require('gulp');
 var temp = require('temp').track();
 var through2 = require('through2');
@@ -26,7 +25,7 @@ describe('gulp-serviceworker', function() {
   });
 
   it('should generate a service worker script', function(done) {
-    fs.writeFileSync(path.join('prova.js'), 'something');
+    fs.writeFileSync('prova.js', 'something');
 
     var stream = gulp.src(['prova.js'])
     .pipe(serviceWorker({
@@ -40,7 +39,7 @@ describe('gulp-serviceworker', function() {
   });
 
   it('should generate a service worker script if the rootDir option isn\'t specified', function(done) {
-    fs.writeFileSync(path.join('prova.js'), 'something');
+    fs.writeFileSync('prova.js', 'something');
 
     var stream = gulp.src(['prova.js'])
     .pipe(serviceWorker())
@@ -52,7 +51,7 @@ describe('gulp-serviceworker', function() {
   });
 
   it('should generate a service worker script if the rootDir option isn\'t the default and doesn\'t exist', function(done) {
-    fs.writeFileSync(path.join('prova.js'), 'something');
+    fs.writeFileSync('prova.js', 'something');
 
     var stream = gulp.src(['prova.js'])
     .pipe(serviceWorker({
@@ -66,7 +65,7 @@ describe('gulp-serviceworker', function() {
   });
 
   it('should generate a service worker script if the rootDir option isn\'t the default and already exists', function(done) {
-    fs.writeFileSync(path.join('prova.js'), 'something');
+    fs.writeFileSync('prova.js', 'something');
     fs.mkdirSync('dist');
 
     var stream = gulp.src(['prova.js'])
@@ -81,7 +80,7 @@ describe('gulp-serviceworker', function() {
   });
 
   it('should emit an error if rootDir isn\'t a directory', function(done) {
-    fs.writeFileSync(path.join('prova.js'), 'something');
+    fs.writeFileSync('prova.js', 'something');
 
     var stream = gulp.src(['prova.js'])
     .pipe(serviceWorker({
