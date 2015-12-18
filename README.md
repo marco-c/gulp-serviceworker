@@ -24,3 +24,13 @@ gulp.task('generate-service-worker', ['build'], function() {
   }));
 });
 ```
+
+You also need to register the generated service worker in your pages. Something like:
+```JavaScript
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('offline-worker.js')
+  .then(function(registration) {
+    console.log('offline worker registered');
+  });
+}
+```
